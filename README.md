@@ -5,6 +5,7 @@
 [![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white)](https://github.com/users/karen/packages/container/package/x-is-human-api)
 [![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/node.js-18+-339933?style=flat&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Docker Image CI/CD](https://github.com/gopkg-dev/x-is-human-api/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/gopkg-dev/x-is-human-api/actions/workflows/docker-publish.yml)
 
 ## 📖 项目简介
 
@@ -56,6 +57,7 @@ npm start
 **⚠️ 重要说明**: 目标网站的JavaScript混淆代码是**动态生成**的,每次请求可能不同。本API需要你从目标网站实时获取最新的混淆JS代码作为输入。混淆代码通常包含时间戳、随机数等动态元素,因此无法使用固定样本。
 
 **请求体**:
+
 ```json
 {
   "jsCode": "从目标网站实时获取的混淆JavaScript代码字符串"
@@ -63,6 +65,7 @@ npm start
 ```
 
 **响应示例**:
+
 ```json
 {
   "success": true,
@@ -82,6 +85,7 @@ npm start
 **端点**: `GET /health`
 
 **响应**:
+
 ```json
 {
   "status": "ok",
@@ -101,7 +105,7 @@ curl -X POST http://localhost:3000/api/process \
 
 ## 🏗️ 架构设计
 
-```
+```bash
 混淆JS代码
   ↓
 反混淆器 (50轮迭代)
@@ -216,7 +220,7 @@ docker run -d \
 
 ### 使用流程建议
 
-```
+```bash
 1. 访问目标网站 → 2. 拦截/提取混淆JS → 3. 调用本API → 4. 获取验证数据 → 5. 使用验证数据
 ```
 
