@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # 安装依赖(包括devDependencies用于构建)
-RUN npm ci
+RUN npm install
 
 # 复制源代码
 COPY . .
@@ -30,7 +30,7 @@ ENV PORT=3000
 COPY package*.json ./
 
 # 仅安装生产依赖
-RUN npm ci --only=production && \
+RUN npm install --omit=dev && \
     npm cache clean --force
 
 # 从builder阶段复制编译后的代码
