@@ -1,0 +1,10 @@
+.vscode
+.output
+dist
+.wxt
+bun.lock
+node_modules
+assets
+
+CHANGELOG.md
+README.md
